@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>LAWGPT</title>
+    <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{{ url_for('static', filename='dist/images/logos/logo.png') }}"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <style>
+      :root {
+        --msger-bg: #fff;
+        --border: 0.1px solid #fff;
+        --left-msg-bg: #fbf7f7;
+        --right-msg-bg: #247bed;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        margin: 0;
+        padding: 0;
+        box-sizing: inherit;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: Helvetica, sans-serif;
+      }
+
+      .msger {
+        display: flex;
+        flex-direction: column;
+        height: calc(
+          100vh - 60px
+        ); /* Adjusted to cover the full viewport height */
+        margin: 0; /* Removed margin to ensure it covers the whole page */
+        border: var(--border);
+        border-radius: 5px;
+        background: var(--msger-bg);
+        box-shadow: 0 15px 15px -5px rgba(214, 209, 209, 0.2);
+        position: fixed; /* Added to ensure it stays in place */
+        top: 0; /* Added to position it at the top of the viewport */
+        left: 0; /* Added to position it at the left of the viewport */
+        width: 100%;
+      }
+
+      .msger-header {
+        font-size: medium;
+        justify-content: space-between;
+        padding: 10px;
+        text-align: center;
+        border-bottom: var(--border);
+        background: #fff;
+        color: #000000;
+      }
+
+      .msger-chat {
+        flex: 1; /* This makes it take up all available space */
+        overflow-y: auto; /* Ensures vertical scrolling */
+        padding: 10px;
+        width: 100%;
+      }
+
+      .msger-chat::-webkit-scrollbar {
+        width: 1px;
+      }
+
+      .msger-chat::-webkit-scrollbar-track {
+        background: #ddd;
+      }
+
+      .msger-chat::-webkit-scrollbar-thumb {
+        background: #bdbdbd;
+      }
+
+      .msg {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 10px;
+      }
+
+      .msg-img {
+        width: 50px;
+        height: 50px;
+        margin-right: 10px;
+        background: #ddd;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .msg-bubble {
+        max-width: 80%;
+        padding: 15px;
+        border-radius: 15px;
+        background: var(--left-msg-bg);
+      }
+
+      .msg-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .msg-info-name {
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      .msg-info-time {
+        font-size: 0.85em;
+      }
+
+      .left-msg .msg-bubble {
+        border-bottom-left-radius: 0;
+      }
+
+      .right-msg {
+        flex-direction: row-reverse;
+      }
+
+      .right-msg .msg-bubble {
+        background: var(--right-msg-bg);
+        color: #fff;
+        border-bottom-right-radius: 0;
+      }
+
+      .right-msg .msg-img {
+        margin: 0 0 0 10px;
+      }
+
+      .msger-inputarea {
+        display: flex;
+        padding: 10px;
+        border-top: var(--border);
+        background: #eee;
+      }
+
+      .msger-inputarea {
+        display: flex;
+        padding: 10px;
+        border-top: var(--border);
+        background: #fff;
+        position: fixed; /* Added to ensure it stays in place */
+        bottom: 0; /* Positioned at the bottom of the viewport */
+        left: 0; /* Positioned at the left of the viewport */
+        right: 0; /* Positioned at the right of the viewport */
+        z-index: 10; /* Ensures it's above other content */
+      }
+
+      .msger-input {
+        border: 1px solid #e8e8e8; /* Adjust the border color here */
+        border-radius: 3px;
+        height: 60px;
+        flex: 1;
+        background: #fff;
+        padding: 15px 10px;
+        line-height: 140%;
+        width: 70%;
+      }
+
+      .msger-send-btn {
+        border: 1px solid #e8e8e8; /* Adjust the border color here */
+        border-radius: 3px;
+        margin-left: 10px;
+        margin-right: 10px;
+        background: #24a0ed;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.23s;
+        padding: 10px 20px;
+        font-size: 1.2em;
+      }
+
+      .msger-send-btn:hover {
+        background: #24a0ed;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 767px) {
+        body {
+          height: auto;
+          display: block;
+        }
+
+        .msger {
+          max-width: 100%;
+          height: calc(100vh - 50px);
+          margin: 25px 0;
+        }
+
+        .msger-inputarea {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 10;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .msg-bubble {
+          max-width: 300px;
+        }
+
+        .msg-img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .msger-inputarea * {
+          padding: 8px;
+        }
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <section class="msger">
+      <header class="msger-header">
+        <div class="msger-header-title" style="justify-content: space-between">
+          AI Chatbot
+        </div>
+      </header>
+
+      <section class="msger-chat">
+        <div class="msg left-msg">
+          <div class="msg-img"></div>
+
+          <div class="msg-bubble">
+            <div class="msg-info">
+              <div class="msg-info-name">AI Chatbot</div>
+              <div class="msg-info-time"></div>
+            </div>
+
+            <div class="msg-text">
+              Hi, I am your AI Legal Chatbot!!<br /><span
+                style="font-weight: 700; color: #579ffb"
+                >Enter Your queries here</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <form class="msger-inputarea">
+        <div class="text-end">
+          <a href="{{ url_for('dashboard') }}">
+            <button class="msger-send-btn" type="button">Back</button></a
+          >
+        </div>
+        <input
+          type="text"
+          class="msger-input"
+          id="textInput"
+          placeholder="Enter your message..."
+        />
+        <button type="button" id="voiceInputBtn" class="msger-send-btn">
+          <i class='fas fa-microphone-alt'></i>
+        </button>
+
+        <div><button type="submit" class="msger-send-btn">Send</button></div>
+      </form>
+    </section>
+    <!-- partial -->
+
+    <script src="https://use.fontawesome.com/releases/v5.0.13/js/all.js"></script>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      const msgerForm = document.querySelector(".msger-inputarea");
+      const msgerInput = document.querySelector(".msger-input");
+      const msgerChat = document.querySelector(".msger-chat");
+
+      const BOT_IMG =
+        "{{ url_for('static',filename='/dist/images/svgs/paypal.svg')}}";
+      const PERSON_IMG =
+        "{{ url_for('static',filename='/dist/images/svgs/icon-user-male.svg')}}";
+      const BOT_NAME = "AI Chatbot";
+      const PERSON_NAME = "sai praneeth";
+
+      msgerForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const msgText = msgerInput.value;
+        if (!msgText) return;
+
+        appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
+        msgerInput.value = "";
+        botResponse(msgText);
+      });
+
+      function appendMessage(name, img, side, text) {
+        const msgHTML = `
+    <div class="msg ${side}-msg">
+      <div class="msg-img" style="background-image: url(${img})"></div>
+      <div class="msg-bubble">
+        <div class="msg-info">
+          <div class="msg-info-name">${name}</div>
+          <div class="msg-info-time">${formatDate(new Date())}</div>
+        </div>
+        <div class="msg-text">${text}</div>
+      </div>
+    </div>
+  `;
+
+        msgerChat.insertAdjacentHTML("beforeend", msgHTML);
+        msgerChat.scrollTop = msgerChat.scrollHeight;
+      }
+
+      function botResponse(text) {
+        $.get("/get_bot", { msg: text }).done((data) => {
+          const msgText = data;
+          appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
+        });
+      }
+      function formatDate(date) {
+        const h = "0" + date.getHours();
+        const m = "0" + date.getMinutes();
+
+        return `${h.slice(-2)}:${m.slice(-2)}`;
+      }
+
+    </script>
+
+    <script>
+      document
+        .getElementById("voiceInputBtn")
+        .addEventListener("click", function () {
+          const recognition = new webkitSpeechRecognition();
+          recognition.lang = "en-US";
+          recognition.interimResults = false;
+          recognition.maxAlternatives = 1;
+
+          var speechResult;
+
+          recognition.onresult = async function (event) {
+            speechResult = event.results[0][0].transcript;
+            console.log(speechResult);
+            var targetLang = "en";
+            var sourceLang = "auto";
+    
+
+            var url =
+              "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" +
+              sourceLang +
+              "&tl=" +
+              targetLang +
+              "&dt=t&q=" +
+              encodeURI(speechResult);
+
+            //console.log(url);
+
+            $.getJSON(url, function (data) {
+              console.log(data[0][0][0]);
+              msgerInput.value = data[0][0][0];
+            });
+          };
+          
+          recognition.onerror = function (event) {
+            console.log("Error occurred in recognition: " + event.error);
+          };
+
+          recognition.start();
+        });
+    </script>
+  </body>
+</html>

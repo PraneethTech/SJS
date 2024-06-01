@@ -1,0 +1,53 @@
+<aside class="left-sidebar">
+  <!-- Sidebar scroll-->
+  <div>
+    <div class="brand-logo d-flex align-items-center justify-content-between">
+      <a href="/dashboard" class="text-nowrap logo-img">
+        <img src="#" class="dark-logo" width="180" alt="LAWBOT" />
+        <!-- <img src="{{ url_for('static', filename='dist/images/logos/logo.png')}}" class="light-logo" width="180" alt=""> -->
+      </a>
+      <div
+        class="close-btn d-lg-none d-block sidebartoggler cursor-pointer"
+        id="sidebarCollapse"
+      >
+        <i class="ti ti-x fs-8 text-muted"></i>
+      </div>
+    </div>
+
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+      <ul id="sidebarnav">
+        <li class="nav-small-cap">
+          <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="/dashboard" aria-expanded="false">
+            <span>
+              <i class="ti ti-dashboard"></i>
+            </span>
+            <span class="hide-menu">Dashboard</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="/my_tasks" aria-expanded="false">
+            <span>
+              <i class="ti ti-calendar-event"></i>
+            </span>
+            <span class="hide-menu">My Tasks</span>
+          </a>
+        </li>
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="/my_documents" aria-expanded="false">
+            <span>
+              <i class="ti ti-report-medical"></i>
+            </span>
+            <span class="hide-menu">My Case Documents</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+
+  <!-- End Sidebar scroll-->
+</aside>
