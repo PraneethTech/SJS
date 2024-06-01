@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'header.html' %}
+  <body>
+    <div
+      class="page-wrapper"
+      id="main-wrapper"
+      data-layout="vertical"
+      data-sidebartype="full"
+      data-sidebar-position="fixed"
+      data-header-position="fixed"
+    >
+      <div class="position-relative overflow-hidden radial-gradient min-vh-100">
+        <div class="position-relative z-index-5">
+          <div class="row">
+            <div class="col-xl-7 col-xxl-8">
+              <div
+                class="d-none d-xl-flex align-items-center justify-content-center"
+                style="height: calc(100vh - 80px)"
+              >
+                <!-- <img
+                  src="{{ url_for('static', filename='dist/images/backgrounds/welcome-bg.svg')}}"
+                  alt=""
+                  class="img-fluid"
+                  width="500"
+                /> -->
+              </div>
+            </div>
+            <div class="col-xl-5 col-xxl-4">
+              <div
+                class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4"
+              >
+                <div class="col-sm-8 col-md-6 col-xl-9">
+                  <h2 class="mb-3 fs-7 fw-bolder">Welcome to LAWGPT</h2>
+                  <div class="row"></div>
+                  <div class="position-relative text-center my-4">
+                    <span
+                      class="border-top w-100 position-absolute top-50 start-50 translate-middle"
+                    ></span>
+                  </div>
+                  <form method="POST" action="/login">
+                    <div class="mb-3">
+                      <label   class="form-label"
+                        >Aadhar number</label
+                      >
+                      <input
+                        type="text"
+                        name="aadharnumber" id ="aadharnumber"
+                        class="form-control"
+                        pattern="^\d{4}\s\d{4}\s\d{4}${12}"
+                        maxlength="14"
+                        required
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <label  class="form-label"
+                        >Password</label
+                      >
+                      <input
+                        type="password"
+                        name = "password" id = "password"
+                        class="form-control"
+                        id="exampleInputPassword1" required
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <label  class="form-label"
+                      >Role</label>
+                      <select name="role" id = "role" class="form-control">
+                        <option value="user">User</option>
+                        <option value="lawyer">Lawyer</option>
+                      </select>
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary w-100 py-8 mb-4 rounded-2"
+                    >
+                      Sign In
+                    </button>
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <p class="fs-4 mb-0 fw-medium">New to LAWGPT ?</p>
+                      <a class="text-primary fw-medium ms-2" href="/register"
+                        >Create an account</a
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+  <script>
+        function showErrorAlert(message) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Login Failed',
+            text: message,
+            confirmButtonText: 'OK'
+        });
+    }
+  </script>
+
+      {% if message %}
+      <script>
+      showErrorAlert("{{ message }}");
+    </script>
+      {% endif %}
+  
+      {% if smsg %}
+      <script>
+        showErrorAlert("{{ smsg }}");
+      </script>
+      {% endif %}
+ 
+</html>

@@ -1,0 +1,18 @@
+<div id="note-full-container" class="note-has-grid row">
+    {% for report in pdf_reports %}
+    <div class="col-md-4 single-note-item all-category">
+      <div class="card card-body">
+        <span class="side-stick"></span>
+        <h6 class="note-title text-truncate w-75 mb-0" data-noteheading="">{{ report['reportType'] }}</h6>
+        <div class="note-content">
+          <p class="note-inner-content" data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">FileName : {{ report['filename'] }}</p>
+        </div>
+        <div class="d-flex align-items-center">
+          <a href="{{ url_for('display_pdf', filename=report['filename'])}}" class="link text-danger ms-2">
+            <i class="ti ti-files" style="font-size: large;"></i>
+          </a>
+          
+        </div>
+      </div>
+    </div> {% endfor %}
+  </div>

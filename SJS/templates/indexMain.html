@@ -1,0 +1,316 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+        <!--  Title -->
+        <title>LAWGPT</title>
+        <!--  Required Meta Tag -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="handheldfriendly" content="true">
+        <meta name="MobileOptimized" content="width">
+        <meta name="description" content="Mordenize">
+        <meta name="author" content="">
+        <meta name="keywords" content="Mordenize">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--  Favicon -->
+        <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='dist/images/logos/logo.png') }}">
+        <!-- Core Css -->
+        <link id="themeColors" rel="stylesheet" href="{{ url_for('static', filename='/dist/css/style.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='/dist/libs/owl.carousel/dist/assets/owl.carousel.min.css')}}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/extra-libs/jsgrid/jsgrid.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='assets/extra-libs/jsgrid/jsgrid-theme.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/libs/prismjs/themes/prism-okaidia.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/libs/select2/dist/css/select2.min.css')}}">
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="{{ url_for('static', filename='dist/images/logos/logo.png') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='dist/libs/owl.carousel/dist/assets/owl.carousel.min.css') }}"
+    />
+    <!--  Aos -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='landing/dist/libs/aos/dist/aos.css') }}"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='landing/dist/css/style.min.css') }}"
+    />
+    <style>
+      .dropdown-menu.pages-dropdown {
+        padding: 0; /* Remove padding to reduce space */
+      }
+
+      .dropdown-menu.pages-dropdown .p-4 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* Add some vertical spacing between options */
+      }
+
+      .dropdown-menu.pages-dropdown a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+ 
+
+
+    <div class="page-wrapper p-0 overflow-hidden">
+      <header class="header">
+        <script type="text/javascript">
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+              {pageLanguage: 'en'},
+              'google_translate_element'
+            );
+          }
+        </script>
+        
+        <script type="text/javascript" src=
+      "https://translate.google.com/translate_a/element.js?
+          cb=googleTranslateElementInit">
+        </script>
+        <nav class="navbar navbar-expand-lg py-0">
+          <div class="container">
+            <a class="navbar-brand me-0 py-0" href="index.html">
+              <img
+                src="{{ url_for('static', filename='dist/images/logos/logo.png') }}"
+                alt="LAWGPT"
+              />
+            </a>
+            <button
+              class="navbar-toggler d-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <i class="ti ti-menu-2 fs-9"></i>
+            </button>
+            <button
+              class="navbar-toggler border-0 p-0 shadow-none"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+            >
+              <i class="ti ti-menu-2 fs-9"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav align-items-center mb- mb-lg-0 ms-auto">
+                <li
+                  class="nav-item ms-2"
+                >
+                  <a
+                
+                    href="/documentation"
+  
+                  >
+                    Documentation
+                  </a>
+                </li>
+                <li class="nav-item ms-2">
+                  <a
+                    class="btn btn-primary fs-3 rounded btn-hover-shadow px-3 py-2"
+                    href="/login"
+                    >Login</a
+                  >
+                </li>
+                <li class="nav-item ms-2">
+                  <a
+                    class="btn btn-primary fs-3 rounded btn-hover-shadow px-3 py-2"
+                    href="/register"
+                    >Register</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <div class="body-wrapper overflow-hidden">
+
+        <section class="production pb-10 pb-md-14" id="production-template">
+          <div class="container">
+             
+          </div>
+        </section>
+
+        <section class="production pb-10 pb-md-14" id="production-template">
+          <div class="container">
+              <div class="row justify-content-between">
+                <div class="col-md-6 justify-content-between">
+                  <h3><b>24/7 Legal assistance at your Finger Tips.</b></h3>
+                  <a href="/login" class="btn bg-white text-primary fw-semibold">Login to get started</a>
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4><b>Legal Rights Education</b></h4>
+                      Eduacte users about their legal rights on different laws, allowing users to make informed decisions and protect their interests. 
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4><b>Chat Suppor</b>t</h4>
+                      Offering Chat support for Legal awarness.
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h4><b>Simplifying Legal Language</b></h4>
+                      Providing insights into the legal consequences of actions, by providing simplified summaries for law documents.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section class="bg-primary pt-5 pt-xl-9 pb-8">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h4 class="fs-12 text-white">Empowering Justice through Connections – Unlocking Legal Connect: Strengthening Your Legal Resolve</h4>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-6"><a href="/login" class="btn bg-white text-primary fw-semibold d-block mb-3 mb-sm-0">Login</a></div>
+                  <div class="col-md-6"><a href="/register" class="btn border-white text-white fw-semibold btn-hover-white d-block">Register</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+        </section>
+      </div>
+      <footer class="footer-part pt-8 pb-5">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4">
+              <div class="text-center">
+                <a href="#">
+                  <img
+                    src="{{ url_for('static', filename='dist/images/logos/logo.png') }}"
+                    alt=""
+                    class="img-fluid pb-3"
+                  />
+                </a>
+                <p class="mb-0 text-dark">
+             
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="offcanvas offcanvas-start modernize-lp-offcanvas" tabindex="-1" id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header p-4">
+        <img src="{{ url_for('static', filename='landing/dist/images/logos/logo-dark.svg') }}" alt="" class="img-fluid" width="150">
+      </div>
+      <div class="offcanvas-body p-4">
+        <ul class="navbar-nav justify-content-end flex-grow-1">
+          <li class="nav-item mt-3">
+            <a class="nav-link fs-3 text-dark active" aria-current="page" href="../docs/index.html">Documentation</a>
+          </li>
+          <!-- <li class="nav-item mt-3">
+            <a class="nav-link fs-3 text-dark" href="#">Pages</a>
+          </li> -->
+        </ul>
+        <form class="d-flex mt-3" role="search">
+          <a href="/login" class="btn btn-primary w-100 py-2">Login</a>
+          
+        </form>
+        <form class="d-flex mt-3" role="search">
+          <a href="/register" class="btn btn-primary w-100 py-2">Sign Up</a>
+          
+        </form>
+      </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+        <!-- <script>
+          function showErrorAlert() {
+            Swal.fire({
+              icon: "info",
+              title: "Features of HealthConnect",
+              html: `<ul class="list-group">
+                    <li class="list-group-item">Expert Matchmaking 🤝: Discover your ideal medical practitioner.</li>
+                    <li class="list-group-item">🤖 AI-powered chatbot for effortless appointment scheduling.</li>
+                    <li class="list-group-item">Rx Made Simple 💊: Managing prescriptions without the hassle.</li>
+                    <li class="list-group-item">Lock & Key Security 🔐: Your health info, your control.</li>
+                    <li class="list-group-item">Seamless Sharing for Physicians 👨‍⚕👩‍⚕: Effortless file access for doctors.</li>
+                    <li class="list-group-item">Health Insights at a Glance 👁‍🗨: Visualize your wellness journey.</li>
+                    <li class="list-group-item">Beyond Safe: Unparalleled data security inspired by the blockchain.</li>
+                    <li class="list-group-item">Your Health Vault 🏛: Where data security meets innovation.</li>
+                    <li class="list-group-item">Fort Knox for Health Data 🔒: Top-tier digital record protection.</li>
+                    <li class="list-group-item">Your Health, Your Data 🔑: Encryption powered by keys you own</li>
+                </ul>`,
+              confirmButtonText: "OK",
+              timer: 50000, // Auto close after 4 seconds
+              timerProgressBar: true,
+              width: "50%",
+              heightAuto: false,
+              onClose: () => {
+                // This code will execute after the alert is closed
+                console.log("Alert closed");
+              },
+            });
+          }
+
+          // Execute this function when the window is loaded/reloaded
+          window.onload = function () {
+            showErrorAlert();
+          };
+        </script> -->
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='dist/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/libs/simplebar/dist/simplebar.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/app.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/app.init.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/app-style-switcher.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/sidebarmenu.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/apps/contact.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/libs/owl.carousel/dist/owl.carousel.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/js/dashboard.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/js/apps/chat.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/js/custom.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/libs/prismjs/prism.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/jsgrid/db.js')}}"></script>
+    <script src="{{ url_for('static', filename='assets/extra-libs/jsgrid/jsgrid.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/js/plugins/jsgrid-init.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/libs/select2/dist/js/select2.full.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/libs/select2/dist/js/select2.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='dist/js/forms/select2.init.js')}}"></script>
+
+    <script src="{{ url_for('static', filename='dist/libs/owl.carousel/dist/owl.carousel.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='landing/dist/libs/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='landing/dist/libs/aos/dist/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='landing/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='landing/dist/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='landing/dist/libs/aos/dist/aos.js') }}"></script>
+    <script src="{{ url_for('static', filename='landing/dist/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='landing/dist/libs/owl.carousel/dist/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='landing/dist/js/custom.js') }}"></script>
+
+
+
+  </body>
+</html>

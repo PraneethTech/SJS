@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'header.html' %}
+  <body>
+    <!--  Body Wrapper -->
+    <div
+      class="page-wrapper"
+      id="main-wrapper"
+    
+      data-layout="vertical"
+      data-sidebartype="full"
+      data-sidebar-position="fixed"
+  
+    >
+      <!-- Sidebar Start -->
+      {% include 'sidebar-user.html' %}
+      <!--  Sidebar End -->
+      <!--  Main wrapper -->
+      <div class="body-wrapper">
+        <!--  Header Start -->
+        {% include 'header-user.html' %}
+        <!--  Header End -->
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex align-items-center gap-4 mb-4">
+                <div class="position-relative">
+                  <div class="border border-2 border-primary rounded-circle">
+                    <img
+                      src="{{ url_for('static', filename='dist/images/profile/user-1.jpg') }}"
+                      class="rounded-circle m-1"
+                      alt="user1"
+                      width="60"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h3 class="fw-semibold">
+                    Hi, <span class="text-dark">{{data['name']}}</span>
+
+                  </h3>
+                  <h5 class="fw-semibold">
+                   <span class="text-dark">Lawyer</span>
+                    
+                  </h5>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 d-flex align-items-stretch"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="/chatbot">
+        <button class="btn btn-primary p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" >
+          <i class="ti ti-message-dots fs-7" data-bs-title="chatbot"></i>
+        </button></a>
+    {% include 'footer.html' %}
+  </body>
+</html>

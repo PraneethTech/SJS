@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    {% include 'header.html' %}
+    <style>
+      
+  .option {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 0 5px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent; /* Default border */
+    width: 100px; /* Adjust the width as needed */
+  }
+  .option.selected {
+    border-color: blue; /* Blue border for selected option */
+  }
+  .option:hover {
+    background-color: #f0f0f0;
+  }
+  .option-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  .option-label {
+    font-size: 14px;
+  }
+    </style>
+  <body>
+    <!-- Preloader -->
+
+    <!-- --------------------------------------------------- -->
+    <!-- Body Wrapper -->
+    <!-- --------------------------------------------------- -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+      <!-- --------------------------------------------------- -->
+      <!-- Sidebar -->
+      <!-- --------------------------------------------------- -->
+      
+        <!-- Sidebar scroll-->
+        {% include 'sidebar-user.html' %}
+        <!-- End Sidebar scroll-->
+      <!-- --------------------------------------------------- -->
+      <!-- Main Wrapper -->
+      <!-- --------------------------------------------------- -->
+      <div class="body-wrapper">
+        <!-- --------------------------------------------------- -->
+        <!-- Header Start -->
+        <!-- --------------------------------------------------- -->
+  
+        <!-- --------------------------------------------------- -->
+        <!-- Header End -->
+        <!-- --------------------------------------------------- -->
+
+
+        
+
+        <div class="container-fluid note-has-grid">
+            <iframe class="pdf" 
+            src=
+              "{{pdfUrl}}"
+             width="1000" height="1000">
+           </iframe>
+             </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+   
+    {% include 'footer.html' %}
+    <!-- ---------------------------------------------- -->
+    <!-- current page js files -->
+    <!-- ---------------------------------------------- -->
+    <script src="{{ url_for('static', filename='dist/js/apps/chat.js') }}"></script>
+    
+    <script src="{{ url_for('static', filename='dist/js/apps/notes.js')}}"></script>
+  </body>
+</html>

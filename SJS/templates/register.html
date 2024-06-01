@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'header.html' %}
+  <body>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="position-relative overflow-hidden radial-gradient min-vh-100">
+    <div class="position-relative z-index-5">
+        <div class="row">
+        <div class="col-xl-7 col-xxl-8">
+        </div>
+        <div class="col-xl-5 col-xxl-4">
+            <div class="authentication-login min-vh-100 bg-body row justify-content-center align-items-center p-4">
+            <div class="col-sm-8 col-md-6 col-xl-9">
+                <h2 class="mb-3 fs-7 fw-bolder">Welcome to LAWGPT</h2>
+                <div class="position-relative text-center my-4">
+                <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
+                </div>
+                <form  method="POST" action="/register">
+                <div class="mb-3">
+                    <label class="form-label">Aadhaar Number</label>
+                    <input type="text" name="aadharnumber" id ="aadharnumber" maxlength=12 class="form-control" id="exampleInputtext" aria-describedby="textHelp">
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Name</label>
+                    <input type="text" name="name" id = "name" class="form-control" id="exampleInputtext" aria-describedby="textHelp">
+                </div>
+                <div class="mb-3">
+                    <label  class="form-label">Email address</label>
+                    <input type="email" id="email" name = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Password</label>
+                    <input type="password" id = "password" name = "password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-4">
+                    <label  class="form-label">Re-type Password</label>
+                    <input type="repassword" onchange="passwordCheck()" id = "repassword" name = "repassword" class="form-control" id="exampleInputPassword2">
+                </div>    
+                <div class="mb-4">
+                    <label   class="form-label"
+                    >Role</label>
+                    <select name="role" id = "role" class="form-control">
+                      <option value="user">User</option>
+                      <option value="lawyer">Lawyer</option>
+                    </select>
+                  </div>                  
+                <button  type="submit" class="btn btn-primary w-100 py-8 mb-4 rounded-2">Sign Up</button>
+                <div class="d-flex align-items-center">
+                    <p class="fs-4 mb-0 text-dark">Already have an Account?</p>
+                    <a class="text-primary fw-medium ms-2" href="{{url_for('login')}}">Sign In</a>
+                </div>
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+   </div>
+</div>
+   {% include 'footer.html' %}
+
+{% if(message)%}
+
+<script>showErrorAlert("{{message}}")</script>
+
+{% endif %}
+
+   <script>
+    function showErrorAlert(message) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Auth Failed',
+        text: message,
+        confirmButtonText: 'OK'
+    });
+    }   
+   </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+   <script>
+    function passwordCheck(){
+        const password = document.getElementById('password').value;
+        const repassword = document.getElementById('repassword').value;
+        if(password != repassword){
+                showErrorAlert(' password and repassword not matched')
+                document.getElementById('repassword').innerHTML = '';
+        }
+    }
+   </script>
+</html>
